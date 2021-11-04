@@ -1,24 +1,29 @@
 package ru.geekbrains.homeworks;
 
-import ru.geekbrains.homeworks.animals.Animal;
-import ru.geekbrains.homeworks.animals.Cat;
-import ru.geekbrains.homeworks.animals.Dog;
-
 /**
  *
  */
 public class App {
     public static void main(String[] args) {
-        Cat cat1 = new Cat();
+        Cat[] cats = new Cat[] {
+            new Cat("cat1", 20),
+            new Cat("cat2", 40),
+            new Cat("cat3", 15),
+            new Cat("cat4", 60),
+            new Cat("cat5", 25),
+        };
+        Plate plate = new Plate(125);
 
-        cat1.run(100);
-        cat1.swim(50);
+        for (Cat cat : cats) {
+            cat.eat(plate);
+            System.out.println(cat);
+        }
 
-        Dog dog1 = new Dog();
+        plate.addFoodCount(50);
 
-        dog1.run(400);
-        dog1.swim(10);
-
-        System.out.println("Кол-во животных " + Animal.count);
+        for (Cat cat : cats) {
+            cat.eat(plate);
+            System.out.println(cat);
+        }
     }
 }
